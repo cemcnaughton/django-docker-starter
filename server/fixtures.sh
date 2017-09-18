@@ -1,0 +1,1 @@
+docker-compose exec api python manage.py loaddata auth.json;
