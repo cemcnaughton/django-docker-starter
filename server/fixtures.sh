@@ -1,1 +1,1 @@
-docker-compose exec api python manage.py loaddata auth.json;
+docker-compose exec api python manage.py loaddata api/fixtures/auth.json;
