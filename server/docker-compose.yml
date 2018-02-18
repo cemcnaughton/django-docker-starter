@@ -5,6 +5,13 @@ services:
     image: postgres
     expose:
       - "5432"
+  nginx:
+    image: nginx:1.13.3-alpine
+    volumes:
+      - './client/nginx/default.conf:/etc/nginx/conf.d/default.conf'
+      - './client:/ng-app'
+    ports:
+      - '80:80'
   api:
     build: .
     command: bash run-dev.sh
@@ -17,4 +24,6 @@ services:
   client:
     build: ./client
     ports:
-      - '80:80'
+      - '4200:4200'
+    volumes:
+      - './client/src:/ng-app/src'
